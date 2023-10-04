@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(15)),
                   gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,colors: [
                     Color(0xffFE2929),
+                    Color(0xffFE2929),
                     Color(0xff071333)
                   ])
                 ),

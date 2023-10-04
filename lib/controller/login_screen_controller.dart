@@ -19,11 +19,18 @@ class LoginScreenController extends GetxController{
     };
     final response =await http.post(uri,body:body);
     print(response.body);
-    if(response.statusCode == "01"){
-      
-      print('Arun');
+    print(response.statusCode);
+    if(response.statusCode == 200 ){
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomeScreen(),));
       Get.snackbar("Success", "Login Successfully");
+      final data = jsonDecode(response.body);
+      token =data["token"];
+      print(token);
       
+    }else{
+      print(response.body);
+      final data = jsonDecode(response.body);
+      Get.snackbar('Error',data['message'] );
     }
       
     } catch (e) {
@@ -32,5 +39,9 @@ class LoginScreenController extends GetxController{
     }
 
     
+  }
+
+  getuserdetails()async{
+    final response = await http.get(Uri.parse('https://portal.crowdafrik.com/api/user-details'),headers: )
   }
 }
